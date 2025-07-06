@@ -13,7 +13,8 @@ class SignupScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text('Sign Up')),
-      body: Padding(
+      body: SingleChildScrollView(
+        child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
@@ -41,6 +42,7 @@ class SignupScreen extends StatelessWidget {
           ],
         ),
       ),
+    ),
     );
   }
 }
