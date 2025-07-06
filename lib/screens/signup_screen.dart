@@ -24,10 +24,16 @@ class SignupScreen extends StatelessWidget {
               onPressed: () async {
                 bool success = await authProvider.signUp(emailController.text, passwordController.text);
                 if (success) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Account created. Please log in.')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Account created successfully'),
+                    backgroundColor: Colors.green,
+                  ));
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => LoginScreen()));
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Signup failed')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Sign up failed'),
+                    backgroundColor: Colors.red,
+                  ));
                 }
               },
               child: Text('Sign Up'),

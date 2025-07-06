@@ -25,9 +25,16 @@ class LoginScreen extends StatelessWidget {
               onPressed: () async {
                 bool success = await authProvider.signIn(emailController.text, passwordController.text);
                 if (success) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Login successful'),
+                    backgroundColor: Colors.green,
+                  ));
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => NotesScreen()));
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login failed')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Login failed'),
+                    backgroundColor: Colors.red,
+                  ));
                 }
               },
               child: Text('Login'),
