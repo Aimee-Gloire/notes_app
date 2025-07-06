@@ -26,11 +26,28 @@ class NoteCard extends StatelessWidget {
               },
             ),
             IconButton(
-              icon: Icon(Icons.delete, color: Colors.red),
-              onPressed: () {
-                notesProvider.deleteNote(note.id);
-              },
-            ),
+  icon: Icon(Icons.delete, color: Colors.red),
+  onPressed: () {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('Confirm Delete'),
+        content: Text('Are you sure you want to delete this note?'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text('Cancel')),
+          ElevatedButton(
+            onPressed: () {
+              notesProvider.deleteNote(note.id);
+              Navigator.pop(ctx);
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Note deleted'), backgroundColor: Colors.green));
+            },
+            child: Text('Delete'),
+          ),
+        ],
+      ),
+    );
+  },
+),
           ],
         ),
       ),
