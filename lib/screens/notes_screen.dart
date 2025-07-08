@@ -5,6 +5,8 @@ import '../widgets/note_card.dart';
 import 'login_screen.dart';
 
 class NotesScreen extends StatelessWidget {
+  const NotesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final notesProvider = Provider.of<NotesProvider>(context);

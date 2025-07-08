@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
 import 'notes_screen.dart';
@@ -7,6 +9,8 @@ import '../providers/auth_provider.dart';
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
